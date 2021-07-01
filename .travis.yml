@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - 14
+braches:
+  only:
+    - develop
+    - master
+notifications:
+  email:
+    recipients:
+      - hi.rodriguez1998@gmail.com

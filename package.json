@@ -11,7 +11,8 @@
   "keywords": ["backend", "node", "javascript", "rest", "API"],
   "license": "MIT",
   "scripts": {
-    "start": "node app.mjs"
+    "start": "node app.mjs",
+    "test": ""
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
