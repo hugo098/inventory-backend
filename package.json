@@ -1,0 +1,23 @@
+{
+  "name": "inventory-backend",
+  "version": "0.0.0",
+  "private": true,
+  "homepage": "https://github.com/hugo098/inventory-backend#readme",
+  "author": {
+    "name": "Hugo Rodríguez",
+    "email": "hi.rodriguez1998@gmail.com"
+  },
+  "engines": {"node": "14.17.1"},
+  "keywords": ["backend", "node", "javascript", "rest", "API"],
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.mjs"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cross-env": "^7.0.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
+  }
+}
