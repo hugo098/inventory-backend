@@ -19,3 +19,11 @@ script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
 
+deploy:
+  provider: heroku
+  api_key:
+    secure: "EKVV4YvvSy3rTjJ/7s8oH32m1Yxt6lbz/x91xoqD89rVSKeGe/kmuQPXYW/3D9WWeIH+DdZX/5XJY6y0y6vlJ0xvBshDwrMh5QrEz3XtdsGUe9LWACYYbkJzrf2kQvjk6DVI698ppo+CwoHT7dEBbQ+DFr1yYodpTDhlMt8ZV3zzm14i7YwpS7r5llBM3kMWSX+YLxMxXrPebhALnxWzdTtPO/+q9QM00joEHm8hMcWQ59uWpXQ7X6xHlIURoq/dT6I1ufgFANHq5ip5LhKYKSS22M4f0f2XmlpUqHVEJ53bFAxSM+2R8pyWAGl+XdZ8uGoE5Gq+v0vZJI+gLbbNlVAg+Zfmp9U4OBpWCaHj+/rLcmhnrNK5Kz5z1Ce45PMZia6O/AhscAf5duhR/Ilvf+s/KcxBJgJyqdCNbSlCD3TcWC7rBGnq9aIFmIjGaf3rjyYjosKufLz8xxmMf8FFS9QK33F5RLvYXHqOv1A1eGl/B76PC6hPyykb2Zm5m8XuXTR/HPwpX81pNMfGfhmMvTwC+evjngtH9w9TzjvRVTd9qFdtkeeRM7Y7DuqCiiMQWsicQr/7VmOiMGzbEWUUPSItePcjc33LAk9UD0CaFPqBzKG3x0ZlV31eIxfgfZmlZgd72zqV4I/hZ49iV4uwSpw1I09Y583N47AmE0uNsts="
+  on:
+    branch: master
+  app: inventory-hr-api
+
