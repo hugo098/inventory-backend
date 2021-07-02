@@ -7,8 +7,16 @@
     "name": "Hugo Rodríguez",
     "email": "hi.rodriguez1998@gmail.com"
   },
-  "engines": {"node": "14.17.1"},
-  "keywords": ["backend", "node", "javascript", "rest", "API"],
+  "engines": {
+    "node": "14.17.1"
+  },
+  "keywords": [
+    "backend",
+    "node",
+    "javascript",
+    "rest",
+    "API"
+  ],
   "license": "MIT",
   "scripts": {
     "start": "node app.mjs",
@@ -19,6 +27,7 @@
     "cross-env": "^7.0.3",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "mongoose": "^5.13.0",
     "morgan": "~1.9.1"
   }
 }
