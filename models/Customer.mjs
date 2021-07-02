@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
-const validateEmail = function (email) {
+export const validateEmail = function (email) {
     const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return re.test(email);
 };
 
-const CustomerSchema = new Schema({
+export const CustomerSchema = new Schema({
     customerType: {
         type: String,
         trim: true,
@@ -18,11 +18,13 @@ const CustomerSchema = new Schema({
         type: String,
         maxLength: [50, 'The primary contact name of the customer is too long'],
         trim: true,
+        default: null
     },
     companyName: {
         type: String,
         maxLength: [50, 'The company name of the customer is too long'],
         trim: true,
+        default: null
     },
     customerDisplayName: {
         type: String,
@@ -35,15 +37,18 @@ const CustomerSchema = new Schema({
         trim: true,
         lowercase: true,
         validate: [validateEmail, 'Please fill a valid email address'],
+        default: null
     },
     customerPhone: {
         workPhone: {
             type: String,
-            maxLength: [20, 'The work phone number is too long']
+            maxLength: [20, 'The work phone number is too long'],
+            default: null
         },
         mobilePhone: {
             type: String,
-            maxLength: [20, 'The mobile phone number is too long']
+            maxLength: [20, 'The mobile phone number is too long'],
+            default: null
         }
     },
     contactPersons: [

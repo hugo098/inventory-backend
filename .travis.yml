@@ -14,11 +14,13 @@ addons:
   sonarcloud:
     organization: "hugo098" # the key of the org you chose at step #3
     token:
-      secure: "qaPIlTU1XlscWaTudlygdLYY95Hdx0DDgeGkrhqyYyy5aVxfPg2vtNh1lx6CnGxCUxMMq5BBPNDuYGbI6lUsY3fGvYxBaAnKe84JehYZIwNzGJ97m943Scyfuta33AdU9vBbXleayt+146vruqS8DfHm0qlKm+mIL18yHvLpg17XRY3wNPVC9XNxXetT9Pr4k8/vRpacZQt6UkpMmtbGvuFf6+gIrZcDw+R0thli2CbaSvTd9JiDMs9GWpBr/Ck62KH/le8j/uX1JDcijqMxg1qMF9+1SWmMroCe0ez0eSR2LxbjlaRR9gOuHdlfPMxGSAJNL5Zw2D75jQwfz1cvVo8fXl963V7h/6+Ou4vuDAkk/y4OtQzHd6VA++1+UOGf78sFSnLZmXETqWvymx17xJyVWBZoLfQWUTOrBmXC1yHLrE8RHEBmQD6NL7wMQlnhJA+GzstOnCnVwfEIkiEiV+wD+ODJwD8sUc98C8h42jXnl6i/PAg7LwFxNkHma52O8MM4lvXiiYljID7pzlZSITnlGX51pPIdP9TeqIMg7lq8rf9TsVqxYkmsWxW3iGFm1HB6/FUZPB5mfd/K5JloynAO64sXFTdpXo8fQ7uvsjQjal33lLQ4XWE1LH/fvcSClx9vbUHcv/S098parxvKaajokrWCmb6Pnr8tVS8ILWQ="
+      secure: "ZEWgMZVrkxiX+0bsqi7g2v68WdINcHnXMZrhHabHrJUqoQjHpDJiUHv2fTY5qP38T5+55xvHpez8qHkbID92uJWiMBk5Vj2pCbudTbkuEgkUgLIQT7GgfcOf7m5LtgeRSbaO0BNQMXn6/4Q0IiMhwV8bwSDhPKySSZMjYiquetlm23amp43mf0Cfm+0D9H9USUH8PhQANEBWtoM+Qhvd9ZNlDS+Iqixx3Q0LzSFIsB6RXxDTse9CllDTuQpNH9ll3e7DaMvGb6XKkdWRg2BDx747eCaUmypxKK5OxuMq49ED6HWSJv74SMZJD3hlWAEqaCoPO/YbropGsYjHr1vmWnSCWai5re8Tg9XLy8s645kmrEaJSoP8f/veTRK8aCKQ93Ifs4pqkOq2fT8rjH1YRNyl9mDljfHyDjUQCL8YFtuVmE/r4HFMdqGRQ2EHj27jkOl4aT3L3VZ9ymr8x5ugstoK17qkqCULy87VqiA76EKFCb3sQJQ8bq6Vj4D/Cz74mc6P2r5n+kAfn8gRKxNWiszrMEIL//UQpmXLGye21GhxKTyyKwuwVqzj7Z++70yfnqX+DzZ4Rn+qcUVa2VbKssWBC4rymp4tCDmUNXT0CHKrWNKyKg0tfk6ANtp/CrTtRKK3gFK026EEotFmzA3+QGztDlmBLlDFwa6QRN9r+sY="
 # encrypted value of your token
 script:
   # other script steps might be done before running the actual analysis
+  - npm run test
   - sonar-scanner
+
 
 deploy:
   provider: heroku

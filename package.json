@@ -19,15 +19,31 @@
   ],
   "license": "MIT",
   "scripts": {
-    "start": "node app.mjs",
-    "test": ""
+    "start": "cross-env node app.mjs",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
-    "cross-env": "^7.0.3",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "mongoose": "^5.13.0",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.7",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-istanbul": "^6.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.3.4",
+    "coverage-node": "^5.0.1",
+    "coveralls": "^3.1.1",
+    "cross-env": "^7.0.3",
+    "jest": "^27.0.6",
+    "mocha": "^9.0.1",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^15.1.0"
   }
 }
