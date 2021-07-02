@@ -1,12 +1,12 @@
-import { port } from './app.mjs';
+import { port, server } from './app.mjs';
 
 export function normalizePort(val) {
-    const port = parseInt(val, 10);
-    if (isNaN(port)) {
+    const _port = parseInt(val, 10);
+    if (isNaN(_port)) {
         return val;
     }
-    if (port >= 0) {
-        return port;
+    if (_port >= 0) {
+        return _port;
     }
     return false;
 }
@@ -32,7 +32,6 @@ export function onError(error) {
     }
 }
 
-import { server } from './app.mjs';
 export function onListening() {
     const addr = server.address();
     const bind = typeof addr === 'string'
