@@ -29,4 +29,7 @@ deploy:
   on:
     branch: master
   app: inventory-hr-api
+env:
+  global:  
+    - secure: "xzivtfZp+RtJOd/uMvgCMqwg84hCiD+X41QefOyKJiki2cROVAvtFzS/rrk/6tboxWDY4S4riiu7CUisro5jqc3BH/ox/PnIFQde9Mna7O/YLcopXwC7vCPb7FZrc6MiJ/7RiwM8QzC3M0uAO36ol64lO2zqzzlspFH7tr3yC/KcZLhasnIjFi1ZMoh4/PBReREuqfUzknOo/DVCzwkwr4FgCY63Hc4HuMj+1ppOFCn7TTfNFTfpV6ovYNdMoePgaRGrrilkJvU0TgxL7mXxAW5RcLcBZt9dDST8vr4v5Bd/IYhd3sFV8AR/k2TLyMWk0DnwWCA9JNGOr/LBgrTDCAZGQwx1Ic7A19YoAi0rQ1G5O5awMg1JqsCI16Kq16wG+moInjzz0rjLG15vvJH7hX3HsEtH0GEADSNu/bqg/8Vj2t7cYIlEyXY9FoorYKW4oaSpIymkATcQ7Ddp4JGh8Nfl0EH3WKvzTJNjqkM5CKsPBLb56qA2rwvYtlHEWv/uAAInqRIeEb5ZzT7moknb54KhlZr817IZMZHLtlrpeGxF7kbvZtR9JCcsp9QK4uym20WZAy6W9YJn4L08IkAJBg9HhQoDJNrgk+ElU0zmhCcRvxYE8DG3u9GJUb8N1QXf4R3rZzPC2A43YchcKe610Vn9evEmkTWph2AoLuYngJk="
 
