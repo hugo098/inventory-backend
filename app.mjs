@@ -25,9 +25,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.get('/', (req, res) => {    
+import customerRoutes from './routes/customerRoutes.mjs';
+
+app.use('/', customerRoutes);
+
+
+app.get('/', (req, res) => {
     res.send("Hello")
 })
+
+
 
 // error handlers
 // catch 404 and forward to error handler
@@ -42,3 +49,17 @@ export const server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+import mongoose from 'mongoose';
+import Customer from './models/Customer.mjs';
+try {
+    mongoose.Promise = global.Promise
+    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+    console.log('Data base connection established');
+} catch (error) {
+    console.log('error')
+}
+
+mongoose.connection.on('error', () => {
+    throw new Error(`unable to connect to database: ${config.mongoUri}`)
+});

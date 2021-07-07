@@ -2,8 +2,11 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 export const validateEmail = function (email) {
-    const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return re.test(email);
+    if (email) {
+        const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return re.test(email);
+    }
+    return true;
 };
 
 export const CustomerSchema = new Schema({
