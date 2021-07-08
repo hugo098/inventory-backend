@@ -79,12 +79,11 @@ const removeCustomer = async (req, res) => {
 }
 
 const updateCustomer = async (req, res) => {
-    
+
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;
     form.maxFields = 7;
-    form.maxFileSize = 2;    
-    console.log(form)
+    form.maxFileSize = 2 * 1024 * 1024;
     form.parse(req, async (err, fields, files) => {
         if (err) {
             return res.status(400).json({
