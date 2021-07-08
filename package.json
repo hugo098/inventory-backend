@@ -1,24 +1,40 @@
 {
   "name": "inventory-backend",
-  "version": "0.0.1-release",
+  "version": "0.0.2-release",
   "private": true,
   "homepage": "https://github.com/hugo098/inventory-backend#readme",
   "author": {
     "name": "Hugo Rodríguez",
     "email": "hi.rodriguez1998@gmail.com"
   },
-  "engines": {"node": "14.17.1"},
-  "keywords": ["backend", "node", "javascript", "rest", "API"],
+  "engines": {
+    "node": "14.17.1"
+  },
+  "keywords": [
+    "backend",
+    "node",
+    "javascript",
+    "rest",
+    "API"
+  ],
   "license": "MIT",
   "scripts": {
-    "start": "node app.mjs",
-    "test": ""
+    "start": "cross-env DEBUG=inventory:* node index.mjs",
+    "test": "cross-env node --experimental-vm-modules node_modules/.bin/jest --verbose"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cross-env": "^7.0.3",
     "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
     "express": "~4.16.1",
+    "formidable": "^1.2.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.0",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "supertest": "^6.1.3"
   }
 }
