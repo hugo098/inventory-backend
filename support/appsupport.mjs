@@ -1,4 +1,4 @@
-import { port, server } from '../app.mjs';
+import { port, server } from '../index.mjs';
 
 export function normalizePort(val) {
     const _port = parseInt(val, 10);

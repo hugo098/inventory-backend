@@ -19,14 +19,14 @@
   ],
   "license": "MIT",
   "scripts": {
-    "start": "cross-env DEBUG=inventory:* node app.mjs",
+    "start": "cross-env DEBUG=inventory:* node index.mjs",
     "test": "cross-env node --experimental-vm-modules node_modules/.bin/jest --verbose"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^10.0.0",
-    "express": "~4.16.1",    
+    "express": "~4.16.1",
     "formidable": "^1.2.2",
     "lodash": "^4.17.21",
     "mongoose": "^5.13.0",
@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "supertest": "^6.1.3"
   }
 }

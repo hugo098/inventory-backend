@@ -79,25 +79,29 @@ const removeCustomer = async (req, res) => {
 }
 
 const updateCustomer = async (req, res) => {
+    
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;
+    form.maxFields = 7;
+    form.maxFileSize = 2;    
+    console.log(form)
     form.parse(req, async (err, fields, files) => {
         if (err) {
             return res.status(400).json({
                 error: err
             });
         }
-        let customer = req.customer;        
+        let customer = req.customer;
         customer = extend(customer, fields);
         customer.updatedAt = Date.now();
         try {
             await customer.save();
             debug(customer);
-            return res.status(200).json({customer});
-        } catch (err) {
-            debug(err);
+            return res.status(200).json({ customer });
+        } catch (dbErr) {
+            debug(dbErr);
             return res.status(400).json({
-                error: err
+                error: dbErr
             });
         }
     });
