@@ -58,7 +58,7 @@ export const CustomerSchema = new Schema({
         {
             contactName: {
                 type: String,
-                maxLength: [50, 'The contact name of the customer is too long'],
+                maxLength: [50, 'The contact name of the customer is too long'],               
                 trim: true,
             },
             contactEmail: {
@@ -66,16 +66,16 @@ export const CustomerSchema = new Schema({
                 maxLength: [30, 'The email is too long'],
                 trim: true,
                 lowercase: true,
-                validate: [validateEmail, 'Please fill a valid email address'],
+                validate: [validateEmail, 'Please fill a valid email address'],                
             },
             contactPhone: {
                 workPhone: {
                     type: String,
-                    maxLength: [20, 'The work phone number is too long']
+                    maxLength: [20, 'The work phone number is too long'],                    
                 },
                 mobilePhone: {
                     type: String,
-                    maxLength: [20, 'The mobile phone number is too long']
+                    maxLength: [20, 'The mobile phone number is too long'],                    
                 }
             }
         }

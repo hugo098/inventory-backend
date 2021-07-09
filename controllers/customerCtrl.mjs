@@ -82,17 +82,24 @@ const updateCustomer = async (req, res) => {
 
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;
-    form.maxFields = 7;
+
+    form.maxFields = 15;
     form.maxFileSize = 2 * 1024 * 1024;
+
     form.parse(req, async (err, fields, files) => {
         if (err) {
             return res.status(400).json({
                 error: err
             });
         }
+
+        if (fields.contactPersons) { fields.contactPersons = JSON.parse(fields.contactPersons) }
         let customer = req.customer;
         customer = extend(customer, fields);
         customer.updatedAt = Date.now();
+        customer.customerPhone.workPhone = fields['customerPhone.workPhone'] || fields['customerPhone[workPhone]'] || customer.customerPhone.workPhone
+        customer.customerPhone.mobilePhone = fields['customerPhone.mobilePhone'] || fields['customerPhone[mobilePhone]'] || customer.customerPhone.mobilePhone
+
         try {
             await customer.save();
             debug(customer);

@@ -219,6 +219,9 @@ describe("Customer API test suite", () => {
             request(app)
                 .put(`/customers/${ids[0]}`)
                 .field('customerDisplayName', 'Hugo Updated')
+                .field('customerPhone.workPhone', '097316987')
+                .field('customerPhone[mobilePhone]', '097315213')
+                .field('contactPersons','[{"contactName": "Ivan Updated", "contactEmail": "h@g.com", "contactPhone":{"workPhone": "09535444", "mobilePhone": "1235648"}},{"contactName": "Ivan pepe", "contactEmail": "h@g.com", "contactPhone":{"workPhone": "09535444", "mobilePhone": "1235648"}}]')              
                 .set('Accept', 'application/json')
                 .expect('Content-Type', /json/)
                 .expect(200)
@@ -232,6 +235,44 @@ describe("Customer API test suite", () => {
                     return done();
                 });
         });
+        test("Should update a customer", (done) => {
+            request(app)
+                .put(`/customers/${ids[0]}`)
+                .field('customerDisplayName', 'Hugo Updated')
+                .field('customerPhone[workPhone]', '097316987')                
+                .field('contactPersons','[{"contactName": "Ivan Updated", "contactEmail": "h@g.com", "contactPhone":{"workPhone": "09535444", "mobilePhone": "1235648"}},{"contactName": "Ivan pepe", "contactEmail": "h@g.com", "contactPhone":{"workPhone": "09535444", "mobilePhone": "1235648"}}]')              
+                .set('Accept', 'application/json')
+                .expect('Content-Type', /json/)
+                .expect(200)
+                .expect(function(res){
+                    expect(res.body.customer.customerDisplayName).toBe('Hugo Updated')
+                })                
+                .end(function (err, res) {
+                    if (err) {
+                        return done(err);
+                    }
+                    return done();
+                });
+        });
+        test("Should update a customer", (done) => {
+            request(app)
+                .put(`/customers/${ids[0]}`)
+                .field('customerDisplayName', 'Hugo Updated')                
+                .field('customerPhone.mobilePhone', '097315213')
+                .field('contactPersons','[{"contactName": "Ivan Updated", "contactEmail": "h@g.com", "contactPhone":{"workPhone": "09535444", "mobilePhone": "1235648"}},{"contactName": "Ivan pepe", "contactEmail": "h@g.com", "contactPhone":{"workPhone": "09535444", "mobilePhone": "1235648"}}]')              
+                .set('Accept', 'application/json')
+                .expect('Content-Type', /json/)
+                .expect(200)
+                .expect(function(res){
+                    expect(res.body.customer.customerDisplayName).toBe('Hugo Updated')
+                })                
+                .end(function (err, res) {
+                    if (err) {
+                        return done(err);
+                    }
+                    return done();
+                });
+        });        
         test("Should not update a customer because inexistent id", (done) => {
             request(app)
                 .put(`/customers/52e101befe6f221caca3449e`)
@@ -292,7 +333,7 @@ describe("Customer API test suite", () => {
                     return done();
                 });
         });
-        test("Should not update a customer because bad id format", (done) => {
+        test("Should not delete a customer because bad id format", (done) => {
             request(app)
                 .delete(`/customers/1`)
                 .set('Accept', 'application/json')
